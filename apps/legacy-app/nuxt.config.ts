@@ -9,9 +9,12 @@ export default defineNuxtConfig({
     bridge: true,
     typescript: true,
     capi: true,
+    meta: true,
+    nitro: true
   },
 
   build: {
+    quiet: false,
     // transpile: ["node-fetch"],
     // @ts-ignore
     extend(config) {
