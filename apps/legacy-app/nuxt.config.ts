@@ -1,5 +1,6 @@
 import { defineNuxtConfig } from "@nuxt/bridge";
-// import colors from "vuetify/es5/util/colors";
+// @ts-ignore
+import colors from "vuetify/es5/util/colors";
 
 export default defineNuxtConfig({
   modules: ["@nuxtjs/vuetify", "@nuxtjs/tailwindcss", "@nuxt/typescript-build"],
@@ -10,7 +11,7 @@ export default defineNuxtConfig({
     typescript: true,
     capi: true,
     meta: true,
-    nitro: true
+    nitro: true,
   },
 
   build: {
@@ -38,7 +39,6 @@ export default defineNuxtConfig({
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
-  /*
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
     theme: {
@@ -56,5 +56,4 @@ export default defineNuxtConfig({
       },
     },
   },
-  */
 });
