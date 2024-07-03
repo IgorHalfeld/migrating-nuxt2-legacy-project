@@ -3,35 +3,42 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt2",
-    "build": "nuxt2 build",
-    "start": "nuxt2 start",
-    "generate": "nuxt2 generate",
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "start": "nuxi preview",
+    "generate": "nuxi generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "yarn lint:js",
     "lintfix": "yarn lint:js --fix"
   },
   "dependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/eslint-parser": "^7.19.1",
     "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/preset-env": "^7.24.7",
+    "@nuxt/bridge": "^3.3.1",
     "@nuxt/types": "^2.13.2",
     "@nuxt/typescript-build": "^3.0.2",
+    "@nuxtjs/eslint-config": "^11.0.0",
+    "@nuxtjs/eslint-module": "^3.1.0",
     "@nuxtjs/tailwindcss": "^6.12.0",
+    "@nuxtjs/vuetify": "^1.12.3",
     "core-js": "^3.25.3",
+    "node-fetch-native": "^1.6.4",
+    "nuxi": "^3.12.0",
     "nuxt": "^2.17.3",
     "typescript": "^5.5.3",
     "ui": "workspace:^",
     "vue": "^2.7.10",
+    "vue-router": "^3.6.5",
     "vue-server-renderer": "^2.7.10",
     "vue-template-babel-compiler": "^2.0.0",
     "vue-template-compiler": "^2.7.10",
     "vuetify": "^2.6.10"
   },
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.19.1",
-    "@nuxt/bridge": "^3.3.1",
-    "@nuxtjs/eslint-config": "^11.0.0",
-    "@nuxtjs/eslint-module": "^3.1.0",
-    "@nuxtjs/vuetify": "^1.12.3",
-    "nuxi": "^3.12.0"
+  "pnpm": {
+    "overrides": {
+      "node-fetch": "^3.3.2"
+    }
   }
 }

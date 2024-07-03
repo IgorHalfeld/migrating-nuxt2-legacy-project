@@ -4,9 +4,15 @@ import { defineNuxtConfig } from "@nuxt/bridge";
 export default defineNuxtConfig({
   modules: ["@nuxtjs/vuetify", "@nuxtjs/tailwindcss", "@nuxt/typescript-build"],
 
-  bridge: false,
+  bridge: {
+    // @ts-ignore
+    bridge: true,
+    typescript: true,
+    capi: true,
+  },
 
   build: {
+    // transpile: ["node-fetch"],
     // @ts-ignore
     extend(config) {
       config.module.rules.push({
@@ -14,17 +20,17 @@ export default defineNuxtConfig({
         include: /node_modules/,
         type: "javascript/auto",
       });
-    },
 
-    loaders: {
-      vue: {
-        // @ts-ignore
-        compiler: require("vue-template-babel-compiler"),
-      },
-    },
-
-    babel: {
-      plugins: ["@babel/plugin-proposal-optional-chaining"],
+      config.module?.rules.push({
+        test: /\.[cm]?js$/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+            compact: true,
+          },
+        },
+      });
     },
   },
 
